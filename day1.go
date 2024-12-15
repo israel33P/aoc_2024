@@ -51,11 +51,27 @@ func converter(inputText string) ([]int, []int) {
 	return leftArr, rightArr
 }
 
+func doTheMath(left []int, right []int) int {
+	var output int = 0
+	for i, l := range left {
+		r := right[i]
+		val := l-r
+		if val < 0 {
+			val *= -1
+		}
+		//fmt.Println(output)
+		output += val 
+	}
+	return output
+}
+
 func main() {
 	inputText := textReader("/mnt/c/Users/isrsanchez/Documents/_Scripting/AdventOfCode_2024/inputs/input_day1.txt")
 	leftArr, rightArr := converter(inputText)
+	output := doTheMath(leftArr, rightArr)
 
-	fmt.Print(leftArr)
-	fmt.Println("\n=========================================")
-	fmt.Println(rightArr)
+	fmt.Print(output)
+	//fmt.Print(leftArr)
+	//fmt.Println("\n=========================================")
+	//fmt.Println(rightArr)
 }
